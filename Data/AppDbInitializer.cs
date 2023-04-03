@@ -99,32 +99,32 @@ namespace eTickets.Data
                         new Producer()
                         {
                             FullName = "Producer 1",
-                            Bio = "This is the Bio of the first actor",
+                            Bio = "This is the Bio of the first producer",
                             ProfilePictureURL = "http://dotnethow.net/images/producers/producer-1.jpeg"
 
                         },
                         new Producer()
                         {
                             FullName = "Producer 2",
-                            Bio = "This is the Bio of the second actor",
+                            Bio = "This is the Bio of the second producer",
                             ProfilePictureURL = "http://dotnethow.net/images/producers/producer-2.jpeg"
                         },
                         new Producer()
                         {
                             FullName = "Producer 3",
-                            Bio = "This is the Bio of the third actor",
+                            Bio = "This is the Bio of the third producer",
                             ProfilePictureURL = "http://dotnethow.net/images/producers/producer-3.jpeg"
                         },
                         new Producer()
                         {
                             FullName = "Producer 4",
-                            Bio = "This is the Bio of the fourth actor",
+                            Bio = "This is the Bio of the fourth producer",
                             ProfilePictureURL = "http://dotnethow.net/images/producers/producer-4.jpeg"
                         },
                         new Producer()
                         {
                             FullName = "Producer 5",
-                            Bio = "This is the Bio of the fifth actor",
+                            Bio = "This is the Bio of the fifth producer",
                             ProfilePictureURL = "http://dotnethow.net/images/producers/producer-5.jpeg"
                         }
                     });
