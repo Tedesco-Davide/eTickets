@@ -70,22 +70,20 @@ namespace eTickets.Migrations
                     EndDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     MovieCategory = table.Column<int>(type: "int", nullable: false),
                     CinemaId = table.Column<int>(type: "int", nullable: false),
-                    CinemaId_ForeignKey = table.Column<int>(type: "int", nullable: false),
-                    ProducerId = table.Column<int>(type: "int", nullable: false),
-                    ProducerId_ForeignKey = table.Column<int>(type: "int", nullable: false)
+                    ProducerId = table.Column<int>(type: "int", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Movies", x => x.Id);
                     table.ForeignKey(
-                        name: "FK_Movies_Cinemas_CinemaId_ForeignKey",
-                        column: x => x.CinemaId_ForeignKey,
+                        name: "FK_Movies_Cinemas_CinemaId",
+                        column: x => x.CinemaId,
                         principalTable: "Cinemas",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_Movies_Producers_ProducerId_ForeignKey",
-                        column: x => x.ProducerId_ForeignKey,
+                        name: "FK_Movies_Producers_ProducerId",
+                        column: x => x.ProducerId,
                         principalTable: "Producers",
                         principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
@@ -97,10 +95,8 @@ namespace eTickets.Migrations
                 {
                     MovieId = table.Column<int>(type: "int", nullable: false),
                     ActorId = table.Column<int>(type: "int", nullable: false),
-                    ActorId_ForeignKey = table.Column<int>(type: "int", nullable: false),
                     Actor_MovieActorId = table.Column<int>(type: "int", nullable: true),
-                    Actor_MovieMovieId = table.Column<int>(type: "int", nullable: true),
-                    MovieId_ForeignKey = table.Column<int>(type: "int", nullable: false)
+                    Actor_MovieMovieId = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -135,14 +131,14 @@ namespace eTickets.Migrations
                 column: "MovieId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Movies_CinemaId_ForeignKey",
+                name: "IX_Movies_CinemaId",
                 table: "Movies",
-                column: "CinemaId_ForeignKey");
+                column: "CinemaId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Movies_ProducerId_ForeignKey",
+                name: "IX_Movies_ProducerId",
                 table: "Movies",
-                column: "ProducerId_ForeignKey");
+                column: "ProducerId");
         }
 
         /// <inheritdoc />

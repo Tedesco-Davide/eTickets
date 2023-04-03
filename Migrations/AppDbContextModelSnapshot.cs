@@ -55,16 +55,10 @@ namespace eTickets.Migrations
                     b.Property<int>("MovieId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ActorId_ForeignKey")
-                        .HasColumnType("int");
-
                     b.Property<int?>("Actor_MovieActorId")
                         .HasColumnType("int");
 
                     b.Property<int?>("Actor_MovieMovieId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("MovieId_ForeignKey")
                         .HasColumnType("int");
 
                     b.HasKey("ActorId", "MovieId");
@@ -109,10 +103,8 @@ namespace eTickets.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CinemaId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("CinemaId_ForeignKey")
+                    b.Property<int?>("CinemaId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
@@ -136,10 +128,8 @@ namespace eTickets.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<int>("ProducerId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProducerId_ForeignKey")
+                    b.Property<int?>("ProducerId")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<DateTime>("StartDate")
@@ -147,9 +137,9 @@ namespace eTickets.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CinemaId_ForeignKey");
+                    b.HasIndex("CinemaId");
 
-                    b.HasIndex("ProducerId_ForeignKey");
+                    b.HasIndex("ProducerId");
 
                     b.ToTable("Movies");
                 });
@@ -206,13 +196,13 @@ namespace eTickets.Migrations
                 {
                     b.HasOne("eTickets.Models.Cinema", "Cinema")
                         .WithMany("Movies")
-                        .HasForeignKey("CinemaId_ForeignKey")
+                        .HasForeignKey("CinemaId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("eTickets.Models.Producer", "Producer")
                         .WithMany("Movies")
-                        .HasForeignKey("ProducerId_ForeignKey")
+                        .HasForeignKey("ProducerId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
