@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Actor>
+
+@{
+    ViewData["Title"] = "List of Actors";
+}
+
+@*Write code*@
+<h1>Welcome to actors view</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <table class="table w-100">
+            <caption>List of Actors</caption>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.ProfilePictureURL)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.FullName)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Bio)</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="align-middle">
+                @foreach (var actor in Model)
+                {
+                    <tr>
+                        <td scope="row">
+                            @Html.DisplayFor(model => actor.Id)
+                        </td>
+                        <td>
+                            <img class="rounded-circle" src="@actor.ProfilePictureURL" alt="@actor.FullName" style="max-width: 150px;"/>
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => actor.FullName)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => actor.Bio)
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-primary">
+                                <i class="bi bi-pencil-square">Edit </i>
+                            </a> |
+                            <a class="btn btn-outline-info">
+                                <i class="bi bi-eye">Details </i>
+                            </a> |
+                            <a class="btn btn-danger text-white">
+                                <i class="bi bi-trash">Delete </i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
