@@ -12,7 +12,7 @@ using eTickets.Data;
 namespace eTickets.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20230401180145_Initial")]
+    [Migration("20230403083225_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
