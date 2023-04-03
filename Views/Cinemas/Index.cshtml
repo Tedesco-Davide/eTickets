@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Cinema>
+
+@{
+    ViewData["Title"] = "List of Cinemas";
+}
+
+<h1>Welcome to Cinemas view</h1>
+
+<div class="row justify-content-center">
+    <div class="col-md-9">
+        <table class="table w-100">
+            <caption>List of Actors</caption>
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Logo)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Name)</th>
+                    <th scope="col">@Html.DisplayNameFor(model => model.Description)</th>
+                    <th scope="col">Actions</th>
+                </tr>
+            </thead>
+            <tbody class="align-middle">
+                @foreach (var cinema in Model)
+                {
+                    <tr>
+                        <td scope="row">
+                            @Html.DisplayFor(model => cinema.Id)
+                        </td>
+                        <td>
+                            <img class="rounded-circle" src="@cinema.Logo" alt="@cinema.Name" style="max-width: 150px;" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => cinema.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(model => cinema.Description)
+                        </td>
+                        <td>
+                            <a class="btn btn-outline-primary">
+                                <i class="bi bi-pencil-square">Edit </i>
+                            </a> |
+                            <a class="btn btn-outline-info">
+                                <i class="bi bi-eye">Details </i>
+                            </a> |
+                            <a class="btn btn-danger text-white">
+                                <i class="bi bi-trash">Delete </i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
