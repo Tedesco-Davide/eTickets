@@ -14,7 +14,15 @@
                     <th scope="col">@Html.DisplayNameFor(model => model.ProfilePictureURL)</th>
                     <th scope="col">@Html.DisplayNameFor(model => model.FullName)</th>
                     <th scope="col">@Html.DisplayNameFor(model => model.Bio)</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">
+                        Actions
+                        <div class="text-white float-end d-flex">
+                            <a type="submit" asp-controller="Actors" asp-action="Create" class="btn btn-success"
+                               style="line-height: 0; padding: 3px 15px;">
+                                <span class="bi bi-plus-circle"> Add New</span>
+                            </a>
+                        </div>
+                    </th>
                 </tr>
             </thead>
             <tbody class="align-middle">
@@ -25,7 +33,7 @@
                             @Html.DisplayFor(model => actor.Id)
                         </td>
                         <td>
-                            <img class="rounded-circle" src="@actor.ProfilePictureURL" alt="@actor.FullName" style="max-width: 150px;"/>
+                            <img class="rounded-circle" src="@actor.ProfilePictureURL" alt="@actor.FullName" style="max-width: 150px;" />
                         </td>
                         <td>
                             @Html.DisplayFor(model => actor.FullName)
