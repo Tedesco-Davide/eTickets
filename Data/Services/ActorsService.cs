@@ -10,11 +10,6 @@ namespace eTickets.Data.Services
         {
             _context = context;
         }
-        public async Task<IEnumerable<Actor>> GetAll()
-        {
-           var result = _context.Actors.ToListAsync();
-           return await result;
-        }
         public void Add(Actor actor)
         {
             _context.Actors.Add(actor);
@@ -34,6 +29,12 @@ namespace eTickets.Data.Services
         public Actor Update(int id, Actor newActor)
         {
             throw new NotImplementedException();
+        }
+
+        public async Task<IEnumerable<Actor>> GetAll()
+        {
+            var result = _context.Actors.ToListAsync();
+            return await result;
         }
     }
 }
